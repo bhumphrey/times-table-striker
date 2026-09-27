@@ -285,3 +285,27 @@ body.rm *, body.rm *::before, body.rm *::after { animation: none !important; tra
   .btn.action { min-height: 72px; }
   .panel { padding: 14px; }
 }
+
+/* ---- Question pops over the pitch ---- */
+/* Cap the pitch height so the whole match screen fits the viewport; the renderer adapts to any size. */
+.pitch { max-height: calc(100dvh - 405px); min-height: 150px; }
+.question-layer {
+  position: absolute; top: 0; left: 0; right: 0; min-height: 100%;
+  display: grid; place-items: center; padding: 10px;
+  background: rgba(0, 0, 0, 0.35); border-radius: var(--radius); z-index: 4;
+}
+.question-layer.hidden { display: none; }
+.question-card {
+  background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 12px 16px; display: flex; align-items: center; gap: 18px;
+  animation: pop 0.2s ease-out; max-width: 100%;
+}
+body.hc .question-card { border: 3px solid #000; }
+.question-card .question-text { font-size: clamp(2rem, 5vw, 3rem); }
+.question-card .numpad { margin: 0; gap: 6px; width: 240px; }
+.question-card .btn.key { min-height: 48px; font-size: 1.4rem; padding: 4px; }
+@media (max-width: 640px) {
+  .question-card { flex-direction: column; gap: 10px; width: 100%; }
+  .question-card .numpad { width: 100%; max-width: 320px; }
+  .question-card .btn.key { min-height: 52px; }
+}

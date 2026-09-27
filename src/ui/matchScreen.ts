@@ -59,6 +59,8 @@ export class MatchScreen {
   private readonly commentaryEl: HTMLElement;
   private readonly panel: HTMLElement;
   private readonly overlay: HTMLElement;
+  /** The question and number pad, popped over the pitch. */
+  private readonly questionLayer: HTMLElement;
   private timerFill: HTMLElement | null = null;
   private timerText: HTMLElement | null = null;
   private answerEl: HTMLElement | null = null;
@@ -85,6 +87,7 @@ export class MatchScreen {
     this.commentaryEl = h('p', { class: 'commentary', role: 'status', 'aria-live': 'polite' });
     this.panel = h('section', { class: 'match-panel' });
     this.overlay = h('div', { class: 'overlay hidden', role: 'dialog', 'aria-live': 'assertive' });
+    this.questionLayer = h('div', { class: 'question-layer hidden' });
 
     this.el = h(
       'main',
@@ -98,7 +101,7 @@ export class MatchScreen {
         this.clockEl,
         h('button', { class: 'btn small ghost pause-btn', onclick: () => this.pause(), 'aria-label': 'Pause match' }, 'Pause'),
       ),
-      h('div', { class: 'pitch-wrap' }, this.canvas, this.overlay),
+      h('div', { class: 'pitch-wrap' }, this.canvas, this.questionLayer, this.overlay),
       this.possEl,
       this.commentaryEl,
       this.panel,
@@ -475,6 +478,8 @@ export class MatchScreen {
   private render(): void {
     const e = this.engine;
     clear(this.panel);
+    clear(this.questionLayer);
+    this.questionLayer.classList.add('hidden');
     this.timerFill = null;
     this.timerText = null;
     this.answerEl = null;
@@ -492,7 +497,9 @@ export class MatchScreen {
       if (q.facts.length > 1) tags.push(`fact ${q.index + 1} of ${q.facts.length}`);
       if (q.pressed) tags.push('PRESSED');
       if (q.longRange) tags.push('long range');
-      this.panel.append(
+      this.panel.append(h('p', { class: 'prompt' }, `${ACTION_LABELS[q.action]}: answer the question on the pitch.`));
+      this.questionLayer.classList.remove('hidden');
+      this.questionLayer.append(h('div', { class: 'question-card' },
         h('div', { class: 'question' },
           h('p', { class: 'question-tag' }, tags.join(' - ')),
           h('p', { class: 'question-text', 'aria-label': `What is ${fact.a} times ${fact.b}?` },
@@ -500,7 +507,7 @@ export class MatchScreen {
           h('div', { class: 'timer', role: 'timer' }, h('span', { class: 'bar' }, this.timerFill), this.timerText),
         ),
         this.numpad(),
-      );
+      ));
       this.updateAnswer();
       return;
     }
