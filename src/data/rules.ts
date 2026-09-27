@@ -92,7 +92,8 @@ export const MATCH_RULES = {
 export type MatchRules = typeof MATCH_RULES;
 
 export const LEAGUE_RULES = {
-  divisionNames: ['Division 3 (Grassroots)', 'Division 2 (County)', 'Division 1 (Premier)'],
+  /** Division 1 is the entry level; division 3 is the top. */
+  divisionNames: ['Grassroots League', 'County League', 'Premier League'],
   /** Tables each division focuses on (index = division - 1). */
   divisionTables: [
     [1, 2, 5, 10],

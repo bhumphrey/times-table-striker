@@ -1,0 +1,148 @@
+[
+  {
+    "id": "low-block-fc", "name": "Low Block FC", "style": "Low Block", "division": 1,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": false, "difficulty": "hard" },
+    "responseTimeLimitSec": 8, "keeperStrength": 0.4, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#6b4f2a", "secondary": "#f2d492" },
+    "scoutingReport": "They defend deep. The long ball will not work; be patient."
+  },
+  {
+    "id": "pressing-pandas", "name": "Pressing Pandas", "style": "High Press", "division": 1,
+    "shortPassAllowance": 2, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 8, "keeperStrength": 0.25, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#222222", "secondary": "#ffffff" },
+    "scoutingReport": "They press after two short passes, and the clock is shorter. Mix in a dribble or a long ball."
+  },
+  {
+    "id": "offside-otters", "name": "Offside Otters", "style": "Offside Trap", "division": 1,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 11, "keeperStrength": 0.3, "tableBias": [], "turnoverPenalty": "breakaway",
+    "tacklesToWin": 1, "colors": { "primary": "#1f6f8b", "secondary": "#e8f6f3" },
+    "scoutingReport": "They hold a high line. The long ball is on, but any mistake gives them a breakaway."
+  },
+  {
+    "id": "tank-town-rovers", "name": "Tank Town Rovers", "style": "Physical Defence", "division": 1,
+    "shortPassAllowance": null, "dribbleChainLength": 3,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 11, "keeperStrength": 0.3, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#5b5b5b", "secondary": "#ffcc00" },
+    "scoutingReport": "Big, strong defenders. Dribbles take 3 facts in a row, so pass around them."
+  },
+  {
+    "id": "tiki-taka-tortoises", "name": "Tiki-Taka Tortoises", "style": "Possession Side", "division": 1,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 12, "keeperStrength": 0.2, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 2, "colors": { "primary": "#2e8b57", "secondary": "#fffbe6" },
+    "scoutingReport": "They keep the ball well: you need 2 tackles to win it back. Passing is easy against them."
+  },
+  {
+    "id": "two-town-terriers", "name": "Two Town Terriers", "style": "Specialist Club", "division": 1,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 10, "keeperStrength": 0.3, "tableBias": [2], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#c0392b", "secondary": "#ffffff" },
+    "scoutingReport": "Normal rules, but they love the 2 times table. Expect lots of twos."
+  },
+
+  {
+    "id": "castle-wall-united", "name": "Castle Wall United", "style": "Low Block", "division": 2,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": false, "difficulty": "hard" },
+    "responseTimeLimitSec": 8, "keeperStrength": 0.55, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#7f8c8d", "secondary": "#2c3e50" },
+    "scoutingReport": "A wall of defenders. No long balls here; work it forward with passes and dribbles."
+  },
+  {
+    "id": "hornets-athletic", "name": "Hornets Athletic", "style": "High Press", "division": 2,
+    "shortPassAllowance": 2, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 6, "keeperStrength": 0.45, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#f1c40f", "secondary": "#111111" },
+    "scoutingReport": "They swarm you after two short passes and give you less time. Be quick and vary your play."
+  },
+  {
+    "id": "linesman-lions", "name": "Linesman Lions", "style": "Offside Trap", "division": 2,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 9, "keeperStrength": 0.5, "tableBias": [], "turnoverPenalty": "breakaway",
+    "tacklesToWin": 1, "colors": { "primary": "#d35400", "secondary": "#fdebd0" },
+    "scoutingReport": "An offside trap. Long balls can split them, but every mistake is a breakaway."
+  },
+  {
+    "id": "ironside-rovers", "name": "Ironside Rovers", "style": "Physical Defence", "division": 2,
+    "shortPassAllowance": null, "dribbleChainLength": 3,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 9, "keeperStrength": 0.5, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#34495e", "secondary": "#ecf0f1" },
+    "scoutingReport": "Tough tacklers. Dribbles need 3 facts in a row."
+  },
+  {
+    "id": "carousel-city", "name": "Carousel City", "style": "Possession Side", "division": 2,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 10, "keeperStrength": 0.45, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 2, "colors": { "primary": "#8e44ad", "secondary": "#f5eef8" },
+    "scoutingReport": "They pass and pass: 2 tackles to win the ball. Try an interception to steal it in one."
+  },
+  {
+    "id": "nine-lives-fc", "name": "Nine Lives FC", "style": "Specialist Club", "division": 2,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 8, "keeperStrength": 0.5, "tableBias": [9], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#16a085", "secondary": "#000000" },
+    "scoutingReport": "Normal rules, but they are nines specialists. Brush up on the 9 times table."
+  },
+
+  {
+    "id": "fortress-albion", "name": "Fortress Albion", "style": "Low Block", "division": 3,
+    "shortPassAllowance": 4, "dribbleChainLength": 2,
+    "longBall": { "enabled": false, "difficulty": "hard" },
+    "responseTimeLimitSec": 7, "keeperStrength": 0.75, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#1a1a2e", "secondary": "#e94560" },
+    "scoutingReport": "The deepest defence in the league. No long balls, and a very good keeper."
+  },
+  {
+    "id": "blitz-borough", "name": "Blitz Borough", "style": "High Press", "division": 3,
+    "shortPassAllowance": 2, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 5, "keeperStrength": 0.65, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#e74c3c", "secondary": "#000000" },
+    "scoutingReport": "The fiercest press around: two short passes and they pounce, with a tight clock."
+  },
+  {
+    "id": "tripwire-town", "name": "Tripwire Town", "style": "Offside Trap", "division": 3,
+    "shortPassAllowance": 4, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 7, "keeperStrength": 0.7, "tableBias": [], "turnoverPenalty": "breakaway",
+    "tacklesToWin": 1, "colors": { "primary": "#27ae60", "secondary": "#f1c40f" },
+    "scoutingReport": "A razor-sharp offside trap. Long balls are allowed, but errors lead to breakaways."
+  },
+  {
+    "id": "granite-giants", "name": "Granite Giants", "style": "Physical Defence", "division": 3,
+    "shortPassAllowance": 4, "dribbleChainLength": 4,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 7, "keeperStrength": 0.7, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#606060", "secondary": "#b0e0e6" },
+    "scoutingReport": "Giant defenders. Dribbles need 4 facts in a row."
+  },
+  {
+    "id": "metronome-rovers", "name": "Metronome Rovers", "style": "Possession Side", "division": 3,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 8, "keeperStrength": 0.65, "tableBias": [], "turnoverPenalty": "normal",
+    "tacklesToWin": 2, "colors": { "primary": "#2980b9", "secondary": "#ffffff" },
+    "scoutingReport": "Masters of possession: 2 tackles to win the ball back. Interceptions win it in one."
+  },
+  {
+    "id": "lucky-sevens", "name": "Lucky Sevens", "style": "Specialist Club", "division": 3,
+    "shortPassAllowance": null, "dribbleChainLength": 2,
+    "longBall": { "enabled": true, "difficulty": "hard" },
+    "responseTimeLimitSec": 7, "keeperStrength": 0.7, "tableBias": [7], "turnoverPenalty": "normal",
+    "tacklesToWin": 1, "colors": { "primary": "#f39c12", "secondary": "#2c3e50" },
+    "scoutingReport": "Normal rules, but they are sevens specialists. Expect the 7 times table."
+  }
+]
