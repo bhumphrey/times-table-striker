@@ -22,6 +22,7 @@ interface Pt {
 }
 
 const ZONE_LABELS = ['DEFENCE', 'MIDFIELD', 'ATTACKING THIRD', 'PENALTY AREA'];
+const ZONE_LABELS_SHORT = ['DEFENCE', 'MIDFIELD', 'ATTACK', 'BOX'];
 
 export class PitchRenderer {
   private ctx: CanvasRenderingContext2D;
@@ -186,7 +187,8 @@ export class PitchRenderer {
     ctx.font = `700 ${fontSize}px system-ui, sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    ZONE_LABELS.forEach((label, i) => {
+    const labels = w < 560 ? ZONE_LABELS_SHORT : ZONE_LABELS;
+    labels.forEach((label, i) => {
       ctx.fillStyle = i === col ? '#ffffff' : 'rgba(255,255,255,0.7)';
       ctx.fillText(label, ((i + 0.5) * w) / 4, pad + 6);
     });

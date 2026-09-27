@@ -208,17 +208,29 @@ describe('Defensive phase', () => {
     expect(m.zone).toBe(2);
   });
 
-  it('a missed save concedes a goal and the player kicks off', () => {
-    const { m } = makeMatch();
-    losePossession(m);
-    m.chooseAction('tackle');
-    wrong(m);
-    m.chooseAction('save');
-    const ev = wrong(m);
-    expect(ev.find((e) => e.type === 'goal' && e.side === 'opponent')).toBeTruthy();
-    expect(m.score.opponent).toBe(1);
-    expect(m.possession).toBe('player');
-    expect(m.zone).toBe(1);
+  it('a missed save usually concedes a goal (player kicks off), sometimes they shoot wide', () => {
+    let goals = 0;
+    let misses = 0;
+    for (let seed = 1; seed <= 40; seed++) {
+      const { m } = makeMatch(neutral, {}, seed);
+      losePossession(m);
+      m.chooseAction('tackle');
+      wrong(m);
+      m.chooseAction('save');
+      const ev = wrong(m);
+      expect(m.possession).toBe('player');
+      if (has(ev, 'goal')) {
+        goals++;
+        expect(m.score.opponent).toBe(1);
+        expect(m.zone).toBe(1);
+      } else {
+        misses++;
+        expect(has(ev, 'opponent-miss')).toBe(true);
+        expect(m.zone).toBe(0);
+      }
+    }
+    expect(goals).toBeGreaterThan(misses);
+    expect(misses).toBeGreaterThan(0);
   });
 
   it('a successful save restarts from defence', () => {

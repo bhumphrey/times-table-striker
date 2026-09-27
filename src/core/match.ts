@@ -74,6 +74,7 @@ export type MatchEvent =
   | { type: 'won-ball'; action: DefendAction; zone: Zone }
   | { type: 'opponent-advance'; zone: Zone }
   | { type: 'save' }
+  | { type: 'opponent-miss' }
   | { type: 'halftime' }
   | { type: 'fulltime' };
 
@@ -453,6 +454,8 @@ export class MatchEngine {
     }
     // Defending: the opponent advances one zone per error; an error on a save is a goal.
     if (q.action === 'save') {
+      const finish = clamp(this.rules.opponentFinishing + this.rb, 0, 1);
+      if (!this.rng.chance(finish)) return [{ type: 'opponent-miss' }, ...this.giveBall('player', 0)];
       this.score.opponent++;
       return [{ type: 'goal', side: 'opponent' }, ...this.kickoff('player')];
     }

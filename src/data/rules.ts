@@ -64,10 +64,10 @@ export const MATCH_RULES = {
   /** How long the correct answer is shown after an error (ms). */
   correctionDisplayMs: 1500,
   /** Shot model. Goal probability for a correct answer before modifiers. */
-  shotBaseInBox: 0.85,
-  shotBaseLongRange: 0.6,
+  shotBaseInBox: 0.5,
+  shotBaseLongRange: 0.28,
   /** Keeper strength (0..1) subtracts up to this much. */
-  keeperEffect: 0.35,
+  keeperEffect: 0.45,
   /** Response-speed modifiers, as a share of the time limit used. */
   fastShotShare: 0.35,
   fastShotBonus: 0.1,
@@ -75,8 +75,13 @@ export const MATCH_RULES = {
   slowShotPenalty: 0.15,
   /** Reference time used for shot speed when timers are switched off (ms). */
   untimedReferenceMs: 8000,
-  shotMin: 0.1,
-  shotMax: 0.95,
+  shotMin: 0.05,
+  shotMax: 0.9,
+  /**
+   * When the learner fails a save, the opponent scores with this probability
+   * plus the rubber-band offset (so a struggling learner sees more misses).
+   */
+  opponentFinishing: 0.75,
   /** Hardness passed to FactEngine for shots (0..1, higher draws tougher facts). */
   longRangeShotHardness: 0.9,
   inBoxShotHardness: 0.3,
@@ -111,8 +116,8 @@ export const LEAGUE_RULES = {
   /** A table is "weak" if its accuracy is below this with enough attempts. */
   weakTableAccuracy: 0.7,
   weakTableMinAttempts: 6,
-  /** Short passes above this share of attacking actions counts as over-reliance. */
-  shortPassRelianceShare: 0.6,
+  /** Short passes above this share of build-up moves (short, long, dribble) = over-reliance. */
+  shortPassRelianceShare: 0.7,
   /** Hard-fact actions (long ball, intercept, long-range shot) below this share = avoidance. */
   hardFactAvoidanceShare: 0.12,
   /** Recent matches used for the learner's play-style profile. */

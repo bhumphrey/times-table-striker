@@ -323,6 +323,9 @@ export class MatchScreen {
           audio.play('save');
           lines.push('Great save!');
           break;
+        case 'opponent-miss':
+          lines.push(`Phew! ${theirName} shoot wide. Your goal kick.`);
+          break;
         case 'kickoff':
           if (e.side === 'opponent') lines.push(`${theirName} kick off.`);
           else lines.push('You kick off.');

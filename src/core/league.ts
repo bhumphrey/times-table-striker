@@ -250,13 +250,13 @@ export class LeagueManager {
   /** Summary of the learner's recent play, used by adaptive scheduling. */
   learnerProfile(): LearnerProfile {
     const recent = this.state.recent.slice(-this.rules.profileWindow);
-    let attack = 0;
+    let buildUp = 0;
     let short = 0;
     let hard = 0;
     let choices = 0;
     for (const m of recent) {
       const c = m.actionCounts;
-      attack += c.short + c.long + c.dribble + c.shot;
+      buildUp += c.short + c.long + c.dribble;
       short += c.short;
       if (m.longBallAllowed) {
         hard += c.long + c.intercept;
@@ -272,7 +272,7 @@ export class LeagueManager {
     return {
       matches: recent.length,
       accuracy: recent.length ? recent.reduce((s, m) => s + m.accuracy, 0) / recent.length : 0.55,
-      shortPassShare: attack ? short / attack : 0,
+      shortPassShare: buildUp ? short / buildUp : 0,
       hardChoiceShare: choices ? hard / choices : null,
       weakTables,
     };
