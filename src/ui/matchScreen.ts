@@ -22,6 +22,8 @@ export interface MatchScreenOptions {
   settings: Settings;
   onFinish(report: MatchReport): void;
   onQuit(): void;
+  /** Dev/testing only: multiplies the match clock speed. */
+  clockSpeed?: number;
 }
 
 const ACTION_KEYS: Record<ActionId, string> = {
@@ -139,7 +141,7 @@ export class MatchScreen {
     const dt = Math.min(100, now - this.last);
     this.last = now;
     if (!this.blocked && !this.paused) {
-      const events = this.engine.tick(dt);
+      const events = this.engine.tick(dt * (this.opts.clockSpeed ?? 1));
       if (events.length) void this.handle(events);
       else if (this.engine.phase === 'question') this.checkTimeout(now);
     }
